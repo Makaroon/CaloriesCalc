@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new DashboardFragment();
     final Fragment fragment3 = new NotificationsFragment();
+    final Fragment fragment4 = new ProfileFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        fm.beginTransaction().add(R.id.main_container,fragment4, "4").hide(fragment4).commit();
         fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
@@ -58,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     fm.beginTransaction().hide(active).show(fragment3).commit();
                     active = fragment3;
+                    return true;
+
+                case R.id.navigation_profile:
+                    fm.beginTransaction().hide(active).show(fragment3).commit();
+                    active=fragment4;
                     return true;
             }
             return false;
