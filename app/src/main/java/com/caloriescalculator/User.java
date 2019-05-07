@@ -30,7 +30,7 @@ public class User {
                 countKatchMcArdle(weight, height, age, fatPercentage)) / 3;
     }
 
-    double countHarrisonBenedict(double weight, double height, String gender, int age) {
+    private double countHarrisonBenedict(double weight, double height, String gender, int age) {
         double res = 0;
         switch (gender) {
             case ("male"):
@@ -45,7 +45,7 @@ public class User {
         return res;
     }
 
-    double countMifflinStJeor(double weight, double height, String gender, int age) {
+    private double countMifflinStJeor(double weight, double height, String gender, int age) {
         double res = 9.99 * weight + 6.25 * height - 4.92 * age;
         switch (gender) {
             case ("male"):
@@ -60,7 +60,7 @@ public class User {
         return res;
     }
 
-    double countKatchMcArdle(double weight, double height, int age, int fatPerc) {
+    private double countKatchMcArdle(double weight, double height, int age, int fatPerc) {
         double lbm = (weight * (100 - fatPerc)) / 100;
         return 370 + 21.6 * lbm;
     }
@@ -115,5 +115,21 @@ public class User {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public int getCurrentCalories() {
+        return currentCalories;
+    }
+
+    public void setCurrentCalories(int currentCalories) {
+        this.currentCalories = currentCalories;
+    }
+
+    public int getFatPercentage() {
+        return fatPercentage;
+    }
+
+    public void setFatPercentage(int fatPercentage) {
+        this.fatPercentage = fatPercentage;
     }
 }
