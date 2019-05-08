@@ -9,7 +9,7 @@ public class User implements Serializable {
     private String gender;
     private double weight;
     private double height;
-    int age;
+    private int age;
 
     private int currentCalories;
     private int fatPercentage;
@@ -132,5 +132,13 @@ public class User implements Serializable {
 
     public void setFatPercentage(int fatPercentage) {
         this.fatPercentage = fatPercentage;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
