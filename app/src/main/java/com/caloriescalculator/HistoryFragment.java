@@ -13,19 +13,19 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashboardFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
     public TextView countTv;
     public Button countBtn;
 
-    public DashboardFragment() {
+    public HistoryFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
         countTv = (TextView) view.findViewById(R.id.count_tv);
         countTv.setText("0");
         countBtn = (Button) view.findViewById(R.id.count_btn);

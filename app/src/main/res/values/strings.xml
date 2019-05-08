@@ -2,10 +2,10 @@
     <string name="app_name">Calories calculator</string>
     <string name="sign_in">Sign in</string>
     <string name="username">Username</string>
-    <string name="email">e-mail</string>
+    <string name="email">E-mail</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">History</string>
-    <string name="title_notifications">Archievements</string>
+    <string name="title_history">History</string>
+    <string name="title_achievements">Achievements</string>
     <string name="profile">Profile</string>
     <string name="accUsername">\@username</string>
 

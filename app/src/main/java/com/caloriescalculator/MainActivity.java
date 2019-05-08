@@ -18,8 +18,8 @@ import com.caloriescalculator.home.HomeFragment;
 public class MainActivity extends AppCompatActivity {
 
     final Fragment fragment1 = new HomeFragment();
-    final Fragment fragment2 = new DashboardFragment();
-    final Fragment fragment3 = new NotificationsFragment();
+    final Fragment fragment2 = new HistoryFragment();
+    final Fragment fragment3 = new AchievementsFragment();
     final Fragment fragment4 = new ProfileFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;

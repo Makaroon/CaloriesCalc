@@ -37,8 +37,8 @@ public class HomeFragment extends Fragment {
 
         rv_list = new ArrayList<>();
         rv_list.add(new HomeItem("Home", R.drawable.ic_home_black_24dp));
-        rv_list.add(new HomeItem("Dashboard", R.drawable.ic_dashboard));
-        rv_list.add(new HomeItem("Notification", R.drawable.ic_notifications));
+        rv_list.add(new HomeItem("Dashboard", R.drawable.ic_history));
+        rv_list.add(new HomeItem("Notification", R.drawable.ic_achievements));
         rv_list.add(new HomeItem("image", R.drawable.ic_image));
         rv_list.add(new HomeItem("Music video", R.drawable.ic_music_video));
         rv_list.add(new HomeItem("Settings", R.drawable.ic_settings));
