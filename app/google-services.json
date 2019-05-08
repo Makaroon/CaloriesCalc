@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "261498060501-g4suc04sk1nmq0jp0konha9i60pdlbr4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.caloriescalculator",
+            "certificate_hash": "866900146a4d7134f24234f178eac4eb667a182b"
+          }
+        },
+        {
           "client_id": "261498060501-sd9kff3reaeresk9env8pill1qc3iaqa.apps.googleusercontent.com",
           "client_type": 3
         }
