@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
 
                 switch (v.getId()) {
                     case R.id.fab:
-                        Intent intent=new Intent(getActivity(),AddFoodActivity.class);
+                        Intent intent = new Intent(getActivity(), AddFoodActivity.class);
                         startActivity(new Intent(intent));
                         break;
                 }
