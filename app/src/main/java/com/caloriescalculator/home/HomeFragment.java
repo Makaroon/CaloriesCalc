@@ -1,15 +1,16 @@
 package com.caloriescalculator.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.caloriescalculator.AddFoodActivity;
 import com.caloriescalculator.R;
 
 import java.util.List;
@@ -32,9 +33,14 @@ public class HomeFragment extends Fragment {
         FloatingActionButton fab = view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+
+                switch (v.getId()) {
+                    case R.id.fab:
+                        Intent intent=new Intent(getActivity(),AddFoodActivity.class);
+                        startActivity(new Intent(intent));
+                        break;
+                }
             }
         });
         return view;
