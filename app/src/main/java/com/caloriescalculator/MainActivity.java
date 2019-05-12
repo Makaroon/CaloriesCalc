@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.caloriescalculator.home.HomeFragment;
 import com.github.mikephil.charting.charts.BarChart;
+import com.hookedonplay.decoviewlib.DecoView;
 
 @SuppressLint("Registered")
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     Fragment active = fragment1;
 
     private BarChart chart;
+
+    private DecoView mDecoView;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
 
         chart = findViewById(R.id.chart);
+
+        mDecoView = (DecoView) findViewById(R.id.dynamicArcView);
+
     }
 
 

@@ -19,12 +19,13 @@
             android:textColor="@color/colorPrimary"
             android:text="Your progress" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
+        <com.hookedonplay.decoviewlib.DecoView
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            custom:dv_lineWidth="22dp"
+            android:id="@+id/dynamicArcView"
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
-            android:layout_height="193dp"
-            android:layout_marginTop="50dp"/>
+            android:layout_height="200dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

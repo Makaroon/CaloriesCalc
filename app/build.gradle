@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:17.0.0'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    implementation 'com.github.bmarrdev:android-DecoView-charting:v1.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

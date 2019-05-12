@@ -1,13 +1,14 @@
 package com.caloriescalculator;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -60,51 +61,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void loginUserAccount() {
         final String email, password;
-        email=getEmailText();
-        password=getPwdText();
+        email = emailText.getText().toString();
+        password = passwordText.getText().toString();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        while (!task.isSuccessful()) {
-                            int red = Color.parseColor("#FF0000");
-                            int white = Color.WHITE;
-                            if (email.isEmpty() && password.isEmpty()) {
-                                emailText.setBackgroundColor(red);
-                                passwordText.setBackgroundColor(red);
-                                signInBut.setEnabled(false);
-                            } else {
-                                emailText.setBackgroundColor(white);
-                                passwordText.setBackgroundColor(white);
-                                signInBut.setEnabled(true);
-                            }
-                        }
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
 
+                        }
                     }
                 });
-    }
-    String getEmailText(){
-        String email="";
-        try {
-            email = emailText.getText().toString();
-        }
-        catch(NullPointerException e){
-            emailText.setBackgroundColor(Color.parseColor("#FF0000"));
-            email="";
-        }
-        return email;
-    }
-
-    String getPwdText(){
-        String pwd="";
-        try {
-            pwd = passwordText.getText().toString();
-        }
-        catch(NullPointerException e){
-            passwordText.setBackgroundColor(Color.parseColor("#FF0000"));
-            pwd="";
-        }
-        return pwd;
     }
 }
