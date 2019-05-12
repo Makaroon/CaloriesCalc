@@ -18,7 +18,8 @@ public class Food {
     double polyUnsatFat;
 
     public Food(String name, double calories){
-
+        this.name=name;
+        this.calories=calories;
     }
 
 }

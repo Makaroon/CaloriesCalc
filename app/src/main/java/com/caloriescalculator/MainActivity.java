@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DecoView mDecoView;
 
+    private CSVReader reader;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDecoView = (DecoView) findViewById(R.id.dynamicArcView);
 
+        reader=new CSVReader("NutritionalFactsFVS.csv");
     }
 
 

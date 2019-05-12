@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CSVReader {
     String fileName;
@@ -19,7 +18,7 @@ public class CSVReader {
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-        List<Food> foodList= new ArrayList<Food>();
+        ArrayList<Food> foodList= new ArrayList<Food>();
         try {
 
             br = new BufferedReader(new FileReader(fileName));
