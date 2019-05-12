@@ -1,6 +1,7 @@
 package com.caloriescalculator;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -50,9 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.sign_in_button:
-                if(!email.isEmpty()&&!password.isEmpty()) {
-                    loginUserAccount();
-                }
+                loginUserAccount();
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
                 break;
@@ -60,18 +59,52 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void loginUserAccount() {
-        String email, password;
-        email = emailText.getText().toString();
-        password = passwordText.getText().toString();
+        final String email, password;
+        email=getEmailText();
+        password=getPwdText();
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                        } else {
+                        while (!task.isSuccessful()) {
+                            int red = Color.parseColor("#FF0000");
+                            int white = Color.WHITE;
+                            if (email.isEmpty() && password.isEmpty()) {
+                                emailText.setBackgroundColor(red);
+                                passwordText.setBackgroundColor(red);
+                                signInBut.setEnabled(false);
+                            } else {
+                                emailText.setBackgroundColor(white);
+                                passwordText.setBackgroundColor(white);
+                                signInBut.setEnabled(true);
+                            }
                         }
+
                     }
                 });
+    }
+    String getEmailText(){
+        String email="";
+        try {
+            email = emailText.getText().toString();
+        }
+        catch(NullPointerException e){
+            emailText.setBackgroundColor(Color.parseColor("#FF0000"));
+            email="";
+        }
+        return email;
+    }
+
+    String getPwdText(){
+        String pwd="";
+        try {
+            pwd = passwordText.getText().toString();
+        }
+        catch(NullPointerException e){
+            passwordText.setBackgroundColor(Color.parseColor("#FF0000"));
+            pwd="";
+        }
+        return pwd;
     }
 }
