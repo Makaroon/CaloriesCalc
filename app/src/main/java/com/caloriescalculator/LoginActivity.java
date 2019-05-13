@@ -16,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText emailText, passwordText;
     private Button signInBut, signUpBut;
@@ -27,13 +27,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
-        emailText = findViewById(R.id.email);
-        passwordText = findViewById(R.id.password);
-        signInBut = findViewById(R.id.sign_in_button);
-        signUpBut = findViewById(R.id.sign_up_button);
 
         mAuth = FirebaseAuth.getInstance();
+
+        InitializeUI();
+
+        findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                loginUserAccount();
+//                finish();
+//                startActivity(new Intent(this, MainActivity.class));
+            }});
     }
 
     @Override
@@ -43,21 +48,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
-    @Override
-    public void onClick(View v) {
-
-        String email, password;
-        email = emailText.getText().toString();
-        password = passwordText.getText().toString();
-
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                loginUserAccount();
-                finish();
-                startActivity(new Intent(this, MainActivity.class));
-                break;
-        }
-    }
 
     private void loginUserAccount() {
         final String email, password;
@@ -65,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         password = passwordText.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter email!", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(password)) {
@@ -87,5 +77,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
+    }
+
+    private void InitializeUI(){
+        emailText = findViewById(R.id.email);
+        passwordText = findViewById(R.id.password);
+        signInBut = findViewById(R.id.sign_in_button);
+        signUpBut = findViewById(R.id.sign_up_button);
     }
 }
