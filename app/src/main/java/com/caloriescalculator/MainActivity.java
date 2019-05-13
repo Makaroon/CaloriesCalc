@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mDecoView = (DecoView) findViewById(R.id.dynamicArcView);
 
         reader=new CSVReader("NutritionalFactsFVS.csv");
+        reader.readCSV();
     }
 
 

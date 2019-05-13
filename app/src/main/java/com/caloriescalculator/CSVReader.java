@@ -26,7 +26,7 @@ public class CSVReader {
 
                 // use comma as separator
                 String[] foodInfo = line.split(cvsSplitBy);
-                Food f = new Food(foodInfo[0], Double.parseDouble(foodInfo[1]));
+                Food f = new Food(foodInfo[0], Double.parseDouble(foodInfo[3]));
                 foodList.add(f);
 
             }
