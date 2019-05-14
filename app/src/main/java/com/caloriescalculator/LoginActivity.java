@@ -14,9 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText emailText, passwordText;
     private Button signInBut, signUpBut;
@@ -32,22 +31,15 @@ public class LoginActivity extends AppCompatActivity {
 
         InitializeUI();
 
-        findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick (View v){
-                loginUserAccount();
-//                finish();
-//                startActivity(new Intent(this, MainActivity.class));
-            }});
+        findViewById(R.id.sign_in_button).setOnClickListener(this);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+    public void onClick(View v) {
+        loginUserAccount();
+//                finish();
+//                startActivity(new Intent(this, MainActivity.class));
     }
-
 
     private void loginUserAccount() {
         final String email, password;
@@ -73,13 +65,14 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
-
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });
     }
 
-    private void InitializeUI(){
+    private void InitializeUI() {
         emailText = findViewById(R.id.email);
         passwordText = findViewById(R.id.password);
         signInBut = findViewById(R.id.sign_in_button);

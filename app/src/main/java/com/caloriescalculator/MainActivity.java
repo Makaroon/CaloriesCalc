@@ -16,6 +16,8 @@ import com.caloriescalculator.home.HomeFragment;
 import com.github.mikephil.charting.charts.BarChart;
 import com.hookedonplay.decoviewlib.DecoView;
 
+import java.util.ArrayList;
+
 @SuppressLint("Registered")
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CSVReader reader;
 
+    private ArrayList<Food> takenFood;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mDecoView = (DecoView) findViewById(R.id.dynamicArcView);
 
         reader=new CSVReader("NutritionalFactsFVS.csv");
-        reader.readCSV();
+        takenFood=reader.readCSV();
     }
 
 

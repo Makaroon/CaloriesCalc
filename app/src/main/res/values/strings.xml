@@ -15,4 +15,9 @@
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="title_activity_add_food">AddFoodActivity</string>
 
+    <string name="txt1">Linked Account</string>
+    <string name="txt2">Refer A Friend</string>
+    <string name="txt3">Rate Us</string>
+    <string name="txt4">Feedback</string>
+
 </resources>
